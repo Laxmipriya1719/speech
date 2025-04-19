@@ -1,0 +1,27 @@
+mode: _finetune
+
+train:
+  device: cpu
+  seed: 42
+  EPOCH: 10
+  batch_size: 8
+  lr: 0.0003
+  weight_decay: 0.01
+  optimizer: AdamW
+  freeze_cnn: false
+  freeze_upstream: false
+  patience: 5
+  resume: null
+  load_model: null
+
+model:
+  type: vesper
+  init_with_ckpt: true
+  path_to_vesper: "C:/Users/mlaxm/OneDrive/Desktop/right/Vesper/pretrained/vesper_pretrain.ckpt"
+
+dataset:
+  name: ravdess
+  path: "C:/Users/mlaxm/OneDrive/Desktop/right/Vesper/data/ravdess_npy"
+  folds: [1]
+  have_test_set: false
+  evaluate: accuracy
